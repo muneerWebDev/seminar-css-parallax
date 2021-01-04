@@ -24,11 +24,13 @@
             overflow-y: auto;
             perspective: 1px;
             transform-style: preserve-3d;
+            font-size: 2.8vh;
+            font-family: sans-serif;
         }
 
         section {
             width: 100vw;
-            height: 100vw;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -88,6 +90,106 @@
     <section class="normal-sec">
         <h1>Normal section</h1>
     </section>
+
+
+    <!-- multi layer parallax  -->
+
+    <style>
+        .parallax__group {
+            position: relative;
+            overflow: hidden;
+            background-image: linear-gradient(rgba(105, 211, 252, 0.25) 0%, rgba(255, 116, 161, 0.25) 86%, rgba(1, 0, 0, 0.25) 100%);
+            background-size: cover;
+            background: #000;
+        }
+
+        .parallax__layer {
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+            top: 0;
+            left: 0;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            background-size: contain !important;
+        }
+
+        .year-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            display: flex;
+            font-size: 8vh;
+            font-family: fantasy;
+            letter-spacing: 2vw;
+            transform: translateZ(-1.2px) scale(1.4);
+        }
+
+        .year-container h1:nth-child(even) {
+            transform: translatey(15px);
+        }
+
+
+        .sky {
+            background: url("parallax-components/sky.png");
+            transform: translateZ(-1.6px) scale(3);
+        }
+
+        .bushes {
+            background: url("parallax-components/bushes.png");
+            transform: translateZ(-1.3px) scale(2.6);
+        }
+
+        .water {
+            background: url("parallax-components/water.png");
+            transform: translateZ(-1.15px) scale(2.4);
+        }
+
+        .people1 {
+            background: url("parallax-components/people1.png");
+            transform: translateZ(-1px) scale(2);
+        }
+
+        .people2 {
+            background: url("parallax-components/people2.png");
+            transform: translateZ(-.8px) scale(1.8);
+        }
+
+        .people3 {
+            background: url("parallax-components/people3.png");
+            transform: translateZ(-.4px) scale(1.4);
+        }
+
+        .end {
+            background: #000;
+            font-family: emoji;
+            font-size: 6vw;
+            text-align: center;
+        }
+    </style>
+
+    <section class="parallax__group hero-container">
+        <div class="parallax__layer sky"></div>
+        <div class="parallax__layer bushes"></div>
+        <div class="parallax__layer water"></div>
+        <div class="parallax__layer people1"></div>
+        <div class="parallax__layer people2"></div>
+        <div class="parallax__layer people3"></div>
+        <div class="parallax__layer hero-text">
+            <div class="year-container">
+                <h1>2</h1>
+                <h1>0</h1>
+                <h1>2</h1>
+                <h1>1</h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="normal-sec end">
+        <h1>HaPpy <br> NeW YeAr</h1>
+    </section>
+
 
 </body>
 
