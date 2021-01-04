@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        html {
+            overflow: hidden;
+        }
+
+        body {
+            height: 100vh;
+            color: #dfff;
+            font-weight: 800;
+            overflow-x: hidden;
+            overflow-y: auto;
+            perspective: 1px;
+            transform-style: preserve-3d;
+        }
+
+        section {
+            width: 100vw;
+            height: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .parallax-1 {
+            background: url("images/1.jpg")center center no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .parallax-2 {
+            position: relative;
+        }
+
+        .parallax-2::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: url("images/2.jpg") center center no-repeat;
+            background-size: cover;
+            z-index: -1;
+            transform: translateZ(-1px) scale(2);
+        }
+
+        .normal-sec {
+            background: url("images/1.jpg") center center no-repeat;
+            background-size: cover;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(56deg, purple, #fff);
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="normal-sec">
+        <h1>Normal section</h1>
+    </section>
+
+    <section class="parallax-1">
+        <h1>Simple Parallax</h1>
+    </section>
+
+    <section class="normal-sec">
+        <h1>Normal section</h1>
+    </section>
+
+    <section class="parallax-2">
+        <h1>3D Parallax</h1>
+    </section>
+
+    <section class="normal-sec">
+        <h1>Normal section</h1>
+    </section>
+
+</body>
+
+</html>
